@@ -57,9 +57,10 @@ in at least 4 of 5 tries.
 
 ## 4. Something about your chunks
 
+Every chunk contains exactly one reply plus its thread title. No chunk holds two replies, and no reply is split across chunks.
 <!-- YOU WRITE THIS ONE.
 
-     How would you know if your chunks were the right size? Name something
+How would you know if your chunks were the right size? Name something
      countable or observable.
 
      Examples of the right shape — don't copy these, they should come from
@@ -73,12 +74,15 @@ in at least 4 of 5 tries.
 
 **Why this target:**
 
+The questions listed are mostly mirrored towards asking an advice and receving different type of answers. each have  aminimum of 90-200 characters by default. one reply per chunk means that the retrieval step returns the specific advice that answer the question with a minimum of 2 character to 793 character per chunk.
+
 
 
 ---
 
 ## 5. Your choice
 
+What I noticed in certain particular threads is that when a threads replies give a conflict type of advice it receive two different sides of answers for at least 2 or 3 of the questions asked.
 <!-- YOU WRITE THIS ONE TOO.
 
      Pick something you actually care about getting right. It could be about
@@ -91,7 +95,7 @@ in at least 4 of 5 tries.
 
 **Why this target:**
 
-
+Im not sure why but the disagreement showed proof that advice always have disagreement and agreemnt from both sides for example in on one the threads "Parking" it received an adviced to park in the west permit vs parking in close to the library for free. each have a side and that is the reason why i chose these models has is told different answers that shows different point of view for this practice. 
 
 ---
 
