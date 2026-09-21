@@ -1,6 +1,6 @@
 # The Unofficial Guide
 
-<!-- Replace this line with your name and which corpus you picked. -->
+Edysson Termonfils - corpus: advice_threads
 
 > **This file is your submission.** Fill it in as you go — most sections get
 > written during the milestone that produces them, not at the end.
@@ -29,8 +29,8 @@
 
 ## Chunking Strategy
 
-**Chunk size:**
-**Overlap:**
+**Chunk size:** one reply - 107 to 256 characters, average 177 (75 chunks from 23 documents)
+**Overlap:** 0
 
 <!-- What about YOUR documents made you pick these numbers? Short posts and
      long sectioned guides don't want the same chunking, and "800 seemed
@@ -53,29 +53,39 @@
 
      Milestone 3. -->
 
-**Chunk 1** — source: `` — produced by: ``
+**Chunk 1** — source: `thread_bike_commute.txt#0` — produced by: `chunker.py::split_documents`
 
 ```
+Is a bike worth it for a 20 minute walk commute?
+(14 votes) Yeah. Cuts an 18 minute walk to about 6. The thing nobody mentions is storage — covered bike parking exists at three buildings and is full by 9am at all three.
 ```
 
-**Chunk 2** — source: `` — produced by: ``
+**Chunk 2** — source: `thread_first_gen.txt#1` — produced by: `chunker.py::split_documents`
 
 ```
+Anything specific for first-generation students?
+(41 votes) The thing I'd say: the unwritten rules are the hard part, not the coursework. Ask about the unwritten rules explicitly. People are happy to explain them and nobody volunteers them.
 ```
 
-**Chunk 3** — source: `` — produced by: ``
+**Chunk 3** — source: `thread_laptop_specs.txt#2` — produced by: `chunker.py::split_documents`
 
 ```
+How much laptop do I actually need for CS courses?
+(12 votes) I did two years on an 8GB machine and it was fine until the last project, at which point it very much wasn't. 16 is the answer.
 ```
 
-**Chunk 4** — source: `` — produced by: ``
+**Chunk 4** — source: `thread_parking.txt#1` — produced by: `chunker.py::split_documents`
 
 ```
+Worth getting a parking permit?
+(21 votes) Street parking on Verrill is legal and free and unmarked, which is why half the upper years do it.
 ```
 
-**Chunk 5** — source: `` — produced by: ``
+**Chunk 5** — source: `thread_sleep_schedule.txt#1` — produced by: `chunker.py::split_documents`
 
 ```
+Everyone says fix your sleep. Does it actually matter?
+(37 votes) The library being open until 2am is a trap. It's a resource, not a schedule.
 ```
 
 ## Sample Answer
