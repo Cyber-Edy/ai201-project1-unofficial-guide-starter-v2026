@@ -24,6 +24,7 @@ your pipeline, not giving up.
 
 from dataclasses import dataclass
 
+import re
 import config
 from ingest import Document
 
@@ -97,7 +98,42 @@ def split_documents(documents: list[Document]) -> list[Chunk]:
       - Would splitting on paragraph breaks keep more thoughts intact than
         splitting on a character count?
     """
-    return fallback_split(documents)
+    
+    marker = re.compile(r"^--- reply \d+ \((\d+) votes?\) ---[ \t]*\n?", re.MULTILINE)
+
+    chunks: list[Chunk] = []
+    for doc in documents:
+        first_line, _, body = doc.text.partition("\n")
+        if first_line.startswith("THREAD:"):
+            title = first_line[len("THREAD:"):].strip()
+        else:
+            title = ""
+            body = doc.text
+
+        # split() with a capture group returns [before, votes1, reply1, votes2, reply2, ...]
+        pieces = marker.split(body)
+        replies = []
+        for votes, reply in zip(pieces[1::2], pieces[2::2]):
+            reply = " ".join(reply.split())  # collapse line breaks inside a reply
+            if reply:
+                replies.append(f"({votes} votes) {reply}")
+
+        # If a document has no reply markers, keep it whole rather than drop it.
+        if not replies:
+            replies = [" ".join(body.split())]
+
+        for index, reply in enumerate(replies):
+            text = f"{title}\n{reply}" if title else reply
+            chunks.append(
+                Chunk(
+                    text=text,
+                    source=doc.source,
+                    index=index,
+                    produced_by="chunker.py::split_documents",
+                )
+            )
+
+    return chunks
 
 
 def describe(chunks: list[Chunk]) -> str:
