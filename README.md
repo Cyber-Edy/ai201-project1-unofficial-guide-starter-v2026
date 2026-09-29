@@ -93,14 +93,16 @@ Everyone says fix your sleep. Does it actually matter?
 <!-- One complete question and answer, pasted as text, with the source line
      visible. Milestone 4. -->
 
-**Question:**
+**Question:** Which street has free and legal parking near campus?
 
-**Answer:**
+**Answer:** Verrill street has free and legal parking, according to thread_parking.txt
 
 ```
 ```
 
-**My relevance cutoff:**
+**My relevance cutoff:** 0.6
+
+I ran my five test questions and the five OUT_OF_SCOPE questions through retrieval. Every in-corpus question landed between 0.20 and 0.41; every out-of-scope question landed between 0.81 and 0.91. There is a gap of 0.4 with nothing in it. The starter's 0.6 sits in the middle of that gap, so I kept it: lower buys nothing since no real question is above 0.41, higher buys nothing since no off-topic question is below 0.81.
 
 <!-- The number you set in config.py, and how you got there.
 
@@ -113,7 +115,16 @@ Everyone says fix your sleep. Does it actually matter?
 
 | Question | In corpus? | Best distance |
 |---|---|---|
-|  |  |  |
+|How late in the semester can you declare a course pass/fail?| yes| 0.287  |
+|How much RAM do people recommend for a CS laptop?| yes |0.223  |
+|Which street has free and legal parking near campus?| yes  |  0.406|
+|When do room changes usually happen if a roommate situation isn't working?| yes |  0.204|
+|How do people suggest making office hours feel less awkward?| yes | 0.410 |
+|What is the capital of Mongolia?| no | 0.904 |
+|How do I change the oil in a diesel engine?| no |0.894|
+|Who won the 1994 World Cup?| no |0.914|
+|What is the recommended dosage of ibuprofen for a headache?| no | 0.812 |
+|How do I write a for loop in Rust?| no |0.873|
 
 ## How I Used AI
 
@@ -157,11 +168,12 @@ Everyone says fix your sleep. Does it actually matter?
 
 | Criterion | Target | Run 1 | Run 2 | Run 3 | Verdict |
 |---|---|---|---|---|---|
-| 1. Retrieved chunk contains the answer | 4 of 5 |  |  |  |  |
-| 2. Every answer names a source | 5 of 5 |  |  |  |  |
-| 3. Gate stops out-of-corpus questions | 4 of 5 |  |  |  |  |
-| 4. | | | | | |
-| 5. | | | | | |
+| 1. Retrieved chunk contains the answer | 4 of 5 |5/5  | 5/5 | 5/5 | met |
+| 2. Every answer names a source | 5 of 5 | 5/5 | 5/5 | 5/5 | met |
+| 3. Gate stops out-of-corpus questions | 4 of 5 |  5/5| 5/5 | 5/5 |  met|
+| 4. Every chunk is exactly one reply + title| all chunks| 75/75| 75/75| 75/75|met|
+| 5. Disagreement questions mention both sides  | 2 of 3|0/1 |0/1 | 0/1|missed |
+
 
 <!-- Underneath, paste the REAL output for each criterion from one of your
      runs — the actual text your system produced, not a description of it.
